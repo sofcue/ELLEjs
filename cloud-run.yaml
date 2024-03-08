@@ -1,0 +1,86 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: ellejs
+  namespace: '139299987872'
+  selfLink: /apis/serving.knative.dev/v1/namespaces/139299987872/services/ellejs
+  uid: b22bbb68-7a1f-4c81-b121-7e69659ac812
+  resourceVersion: AAYTHs4C4gQ
+  generation: 4
+  creationTimestamp: '2024-03-08T04:32:29.681029Z'
+  labels:
+    managed-by: gcp-cloud-build-deploy-cloud-run
+    gcb-trigger-id: 97dae7ac-8de2-4909-835b-ccf7924b7744
+    gcb-trigger-region: global
+    commit-sha: 6d8295a4ac2eb61ce8111744b05b6d33b49cc98b
+    gcb-build-id: a4217d60-efe0-4214-b8ab-ef45a05d00d5
+    cloud.googleapis.com/location: us-east1
+  annotations:
+    run.googleapis.com/client-name: gcloud
+    serving.knative.dev/creator: sofcue4120@gmail.com
+    serving.knative.dev/lastModifier: 139299987872-compute@developer.gserviceaccount.com
+    run.googleapis.com/client-version: 467.0.0
+    run.googleapis.com/operation-id: 15b9e57d-add3-498a-bba8-11e83571dee8
+    run.googleapis.com/ingress: all
+    run.googleapis.com/ingress-status: all
+    run.googleapis.com/minScale: '0'
+spec:
+  template:
+    metadata:
+      labels:
+        client.knative.dev/nonce: pjjhbnvxul
+        managed-by: gcp-cloud-build-deploy-cloud-run
+        gcb-trigger-id: 97dae7ac-8de2-4909-835b-ccf7924b7744
+        gcb-trigger-region: global
+        commit-sha: 6d8295a4ac2eb61ce8111744b05b6d33b49cc98b
+        gcb-build-id: a4217d60-efe0-4214-b8ab-ef45a05d00d5
+        run.googleapis.com/startupProbeType: Default
+      annotations:
+        run.googleapis.com/client-name: gcloud
+        run.googleapis.com/client-version: 467.0.0
+        autoscaling.knative.dev/maxScale: '100'
+        run.googleapis.com/startup-cpu-boost: 'true'
+    spec:
+      containerConcurrency: 80
+      timeoutSeconds: 300
+      serviceAccountName: 139299987872-compute@developer.gserviceaccount.com
+      containers:
+      - name: placeholder-1
+        image: us-east1-docker.pkg.dev/ellejs/cloud-run-source-deploy/ellejs/ellejs:6d8295a4ac2eb61ce8111744b05b6d33b49cc98b
+        ports:
+        - name: http1
+          containerPort: 8080
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 512Mi
+        startupProbe:
+          timeoutSeconds: 240
+          periodSeconds: 240
+          failureThreshold: 1
+          tcpSocket:
+            port: 8080
+  traffic:
+  - percent: 100
+    latestRevision: true
+status:
+  observedGeneration: 4
+  conditions:
+  - type: Ready
+    status: 'True'
+    lastTransitionTime: '2024-03-08T04:41:26.505988Z'
+  - type: ConfigurationsReady
+    status: 'True'
+    lastTransitionTime: '2024-03-08T04:32:29.819239Z'
+  - type: RoutesReady
+    status: 'True'
+    lastTransitionTime: '2024-03-08T04:41:26.460602Z'
+  latestReadyRevisionName: ellejs-00003-g69
+  latestCreatedRevisionName: ellejs-00003-g69
+  traffic:
+  - revisionName: ellejs-00003-g69
+    percent: 100
+    latestRevision: true
+  url: https://ellejs-hmemtimhdq-ue.a.run.app
+  address:
+    url: https://ellejs-hmemtimhdq-ue.a.run.app
