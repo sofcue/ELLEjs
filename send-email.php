@@ -11,6 +11,7 @@ use PHPMailer\PHPMailer\SMTP;
 
 $mail = new PHPMailer(true);
 
+Try {
 $mail-> SMTPDebug = SMTP::DEBUG_SERVER;
 
 $mail ->isSMTP();
@@ -27,8 +28,11 @@ $mail->setFrom($email, $name);
 $mail->addAddress("elviss@ellejs.com", "Elviss Medina");
 
 $mail->Subject = "{$name} Cleaning Request";
-$mail->Body = $message;
+$mail->Body = "Name: $name\nEmail: $email\nMessage: $message";
 
 $mail->send();
-
-header("Location: sentmail.html");
+    echo 'Message has been sent successfully!';
+} catch (Exception $e) {
+    echo "Message could not be sent. Error: {$mail->ErrorInfo}";
+}
+?>

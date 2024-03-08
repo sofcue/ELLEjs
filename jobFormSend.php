@@ -13,7 +13,7 @@ $email = $_POST["email"];
 $body= sprintf("%s%s\n%s%s\n%s%s\n%s%s\n%s%s\n%s%s\n%s%s\n%s%s\n%s%s",
     "Name: ", $name, "Phone Number: ", $phoneNumber, "Email: ", $email,
     "Address: ", $address, "City: ", $city, "State: ",$state, "Zip Code: ", $zipCode,
-    "Wage: ", $wage, "Emegency Contact: ", $emergencyContact);
+    "Wage: ", $wage, "Emergency Contact: ", $emergencyContact);
 
 
 require "vendor/autoload.php";
@@ -43,4 +43,4 @@ $mail->Body = $body;
 
 $mail->send();
 
-header("Location: sentmail.html");
+
