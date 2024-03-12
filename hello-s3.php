@@ -10,13 +10,13 @@ require 'vendor/autoload.php';
 use Aws\S3\S3Client;
 //Create a S3Client
 $s3Client = new S3Client([
-    'profile' => 'default',
-    'region' => 'us-east-1',
+    'profile' => 'codepipeline-us-east-2-45598674797',
+    'region' => 'us-east-2',
     'version' => '2006-03-01'
 ]);
 
 //Listing all S3 Bucket
 $buckets = $s3Client->listBuckets();
-foreach ($buckets['Buckets'] as $bucket) {
-    echo $bucket['Name'] . "\n";
+foreach ($buckets['codepipeline-us-east-2-45598674797'] as $bucket) {
+    echo $bucket['codepipeline-us-east-2-45598674797'] . "\n";
 }

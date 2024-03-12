@@ -33,3 +33,5 @@ $mail->Body = "Name: $name\nEmail: $email\nMessage: $message";
 $mail->send();
 
 header("Location: sentmail.html");
+
+?>
