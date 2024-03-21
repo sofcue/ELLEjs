@@ -16,10 +16,8 @@ $body= sprintf("%s%s\n%s%s\n%s%s\n%s%s\n%s%s\n%s%s\n%s%s\n%s%s\n%s%s",
     "Wage: ", $wage, "Emergency Contact: ", $emergencyContact);
 
 
-require "vendor/autoload.php";
+require(vendor/autoload.php);
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 
 $mail = new PHPMailer(true);
 
@@ -43,4 +41,7 @@ $mail->Body = $body;
 
 $mail->send();
 
+header("Location: sentmail.html");
+
+?>
 
