@@ -1,11 +1,15 @@
 # cloudbuild.yaml
+options:
+  logging: CLOUD_LOGGING_ONLY
+  pool: {}
+projectId: PROJECT_ID
 steps:
-  - name: node:10.15.1
-    entrypoint: npm
-    args: ["install"]
-  - name: node:10.15.1
-    entrypoint: npm
-    args: ["run", "build"]
-  - name: "gcr.io/cloud-builders/gcloud"
-    args: ["app", "deploy"]
-timeout: "1600s"
+  - name: gcr.io/k8s-skaffold/pack
+    entrypoint: pack
+    args:
+      - build
+      - REPOSITORY_URI
+      - --builder
+      - gcr.io/buildpacks/builder:latest
+      - --network
+      - cloudbuild
